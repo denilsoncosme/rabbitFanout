@@ -1,0 +1,2 @@
+# rabbitFanout
+projeto estudo
