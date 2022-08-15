@@ -2,7 +2,8 @@
 using RabbitMQ.Client.Events;
 using System.Text;
 
-string queue = "queuePub";
+string queue = Environment.GetCommandLineArgs()[1];
+Console.WriteLine(queue);
 var factory = new ConnectionFactory
 {
 	HostName = "localhost"
@@ -35,7 +36,7 @@ void BuildAndRunWorker(IModel channel, string workerName)
 		{
 			byte[] bytes = ea.Body.ToArray();
 			string body = Encoding.UTF8.GetString(bytes);
-			Console.WriteLine($" {workerName} - Received {body} ");
+			Console.WriteLine($" {workerName} - Queue {queue} - Received {body} ");
 			await Task.Delay(1000);
 			channel.BasicAck(ea.DeliveryTag, multiple: false);
 		}

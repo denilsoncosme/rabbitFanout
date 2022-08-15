@@ -8,3 +8,7 @@ https://www.rabbitmq.com/download.html
 
 - documentação
 https://www.rabbitmq.com/tutorials/tutorial-three-dotnet.html
+
+- rodar consumidores
+ir até a pasta do executavel e rodar o comando substituindo {queueName} pelo nome da fila que deseja rodar:
+Consumer.exe "{queueName}"
